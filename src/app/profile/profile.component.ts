@@ -3,14 +3,25 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
-  imports: [],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-constructor (private router: Router){}
-Logout(){
-  sessionStorage.removeItem('auth')
-  this.router.navigate(['/login'])
-}
+
+  username: string | null = '';
+
+  constructor(private router: Router) { }
+
+  ngOnInit() {
+    this.username = sessionStorage.getItem('username');  
+    if (!this.username) {
+      this.router.navigate(['/login']);  
+    }
+  }
+
+  logout() {
+    sessionStorage.removeItem('auth');
+    sessionStorage.removeItem('username');  
+    this.router.navigate(['/login']);
+  }
 }

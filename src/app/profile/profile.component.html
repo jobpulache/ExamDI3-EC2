@@ -1,6 +1,8 @@
 <div class="container mt-5">
-    <h1>Profile</h1>
-    <p>Aqui ingresas solo si estás logueado.Gracias por logearte</p>
-    <button class="btn btn-danger mt-3" (click)="Logout()">Cerrar Sesión</button>
+  <div class="profile-container">
+    <h1>Bienvenido, {{ username }}!</h1>
+    <p>Aquí ingresas solo si estás logueado. ¡Gracias por loguearte!</p>
+    <button (click)="logout()">Cerrar sesión</button>
   </div>
-  
+
+</div>

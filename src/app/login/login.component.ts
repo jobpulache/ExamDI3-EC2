@@ -6,20 +6,19 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-login',
   imports: [FormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'] 
+  styleUrl: './login.component.css'
 })
 export class LoginComponent {
 
   username: string = '';
   password: string = '';
-
-  constructor(private router: Router) {}
+  
+  constructor(private router: Router) { }
 
   login() {
     if (this.username === 'JobManuDL' && this.password === '123') {
       sessionStorage.setItem('auth', 'true');
-      sessionStorage.setItem('username', this.username);
-
+      sessionStorage.setItem('username', this.username); 
       this.router.navigate(['/profile']);
     } else {
       alert('Usuario o contraseña incorrectos');
